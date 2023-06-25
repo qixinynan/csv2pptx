@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="/static/index.css" >
 
     <!-- MDUI JavaScript -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
 </head>
 <body class="mdui-theme-primary-indigo mdui-theme-accent-blue mdui-theme-layout-auto mdui-loaded">
     {% include "header.html" %}
     <form class="container" method="post" enctype="multipart/form-data" action="/generate">
-        <input type="button" class="mdui-btn mdui-color-theme-accent mdui-ripple mdui-btn-block mdui-m-t-5" value="上传CSV文件" onclick="$('#csv-uploader').click()">
+        <input id="csv-uploader-btn" type="button" class="mdui-btn mdui-color-theme-accent mdui-ripple mdui-btn-block mdui-m-t-5" value="上传CSV文件" onclick="upload()">
         <input name="csv" style="opacity: 0" required type="file" id="csv-uploader" accept=".csv">
         <div class="mdui-textfield">
           <input name="count" type="number" required class="mdui-textfield-input"  placeholder="生成页面数量"/>
@@ -28,7 +27,16 @@
           <input name="start_column" type="number" value="1" required class="mdui-textfield-input" placeholder="数据列"/>
           <div class="mdui-textfield-helper">程序将使用CSV中这一列作为数据源</div>
         </div>
-        <input type="submit" class="mdui-btn mdui-color-theme-accent mdui-ripple mdui-btn-block mdui-m-t-5" value="提交">
+        <input type="submit" class="mdui-btn mdui-color-green mdui-ripple mdui-btn-block mdui-m-t-5" value="提交">
     </form>
 </body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    function upload() {
+        $('#csv-uploader').click();
+        document.getElementById("csv-uploader").onchange = () => {
+            $('#csv-uploader-btn').val('已选择CSV文件')
+        }
+    }
+</script>
 </html>
