@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生成结果_CSV转PPT - 七夕泥快捷工具箱</title>
+    <!-- MDUI CSS -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/index.css" >
+
+    <!-- MDUI JavaScript -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
+</head>
+<body class="mdui-theme-primary-indigo mdui-theme-accent-blue mdui-theme-layout-auto mdui-loaded">
+    {% include "header.html" %}
+    <div class="container">
+        <a href="{{ download }}" class="mdui-btn mdui-color-theme-accent mdui-ripple mdui-btn-block mdui-m-t-5">点击下载</a>
+        <p>随机选取项目预览</p>
+        <ul class="mdui-list">
+            {% for sample in samples %}
+                <li class="mdui-list-item mdui-ripple">{{ sample }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
