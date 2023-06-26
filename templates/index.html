@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CSV转PPT - 七夕泥快捷工具箱</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- MDUI CSS -->
     <link href="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/index.css" >
@@ -26,6 +27,38 @@
         <div class="mdui-textfield">
           <input name="start_column" type="number" value="1" required class="mdui-textfield-input" placeholder="数据列"/>
           <div class="mdui-textfield-helper">程序将使用CSV中这一列作为数据源</div>
+        </div>
+        <div class="mdui-textfield">
+            <input name="font_name" type="text" value="楷体" required class="mdui-textfield-input" placeholder="字体名称"/>
+            <div class="mdui-textfield-helper">文字字体</div>
+        </div>
+        <div class="mdui-textfield">
+            <input name="font_size" type="number" value="150" required class="mdui-textfield-input" placeholder="文字大小"/>
+            <div class="mdui-textfield-helper">文字大小</div>
+        </div>
+         <div>
+             <div class="mdui-row">
+                 <div class="mdui-textfield mdui-col-xs-6">
+                     <input name="text_width" type="number" value="720" required class="mdui-textfield-input" placeholder="文本框宽度"/>
+                     <div class="mdui-textfield-helper">文本框宽度</div>
+                </div>
+                 <div class="mdui-textfield mdui-col-xs-6">
+                     <input name="text_height" type="number" value="200" required class="mdui-textfield-input" placeholder="文本框高度"/>
+                     <div class="mdui-textfield-helper">文本框高度</div>
+                </div>
+            </div>
+        </div>
+        <div>
+             <div class="mdui-row">
+                 <div class="mdui-textfield mdui-col-xs-6">
+                     <input name="text_left" type="number" value="0" required class="mdui-textfield-input" placeholder="文本框距左距离"/>
+                     <div class="mdui-textfield-helper">文本框距左距离</div>
+                </div>
+                 <div class="mdui-textfield mdui-col-xs-6">
+                     <input name="text_top" type="number" value="180" required class="mdui-textfield-input" placeholder="文本框距上距离"/>
+                     <div class="mdui-textfield-helper">文本框距上距离</div>
+                </div>
+            </div>
         </div>
         <input type="submit" class="mdui-btn mdui-color-green mdui-ripple mdui-btn-block mdui-m-t-5" value="提交">
     </form>

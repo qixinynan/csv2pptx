@@ -29,6 +29,13 @@ def generate():
     start_row = int(request.values.get('start_row'))
     start_column = int(request.values.get('start_column'))
 
+    font_size = int(request.values.get('font_size'))
+    text_width = int(request.values.get('text_width'))
+    text_height = int(request.values.get('text_height'))
+    text_left = int(request.values.get('text_left'))
+    text_top = int(request.values.get('text_top'))
+    font_name = str(request.values.get('font_name'))
+
     if csv_file is None:
         return "缺少需要上传的文件"
     save_csv_file_name = str(uuid.uuid4()) + '.csv'
@@ -37,7 +44,15 @@ def generate():
 
     data = csv2pptx.read_csv(csv_path, start_row, start_column)
     samples = random.sample(data, count)
-    presentation = csv2pptx.generate_presentation_by_array(samples)
+    presentation = csv2pptx.generate_presentation_by_array(
+        samples,
+        font_size,
+        text_width,
+        text_height,
+        text_top,
+        text_left,
+        font_name
+    )
 
     pptx_filename = str(uuid.uuid4()) + '.pptx'
     pptx_path = os.path.join(app.config['UPLOAD_FOLDER'], pptx_filename)
